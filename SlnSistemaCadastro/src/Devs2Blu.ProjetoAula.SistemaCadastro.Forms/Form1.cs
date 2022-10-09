@@ -105,7 +105,7 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms
                 Endereco endereco = new Endereco(pessoa, mskCEP.Text.Replace(',', '.'),txtRua.Text,
                     Int32.Parse(txtNumero.Text), txtBairro.Text, txtCidade.Text, cboUF.Text);
                 EnderecoRepository.Save(endereco);
-
+                
                 Paciente paciente = new Paciente();
                 paciente.Pessoa.Id = pessoa.Id;
                 paciente.Convenio.Id = (int)cboConvenio.SelectedValue;
@@ -132,7 +132,27 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            Pessoa pessoa = new Pessoa();
+            pessoa.Id = (int)gridPacientes.CurrentRow.Cells[0].Value;
+            if (PessoaRepository.Delete(pessoa))
+            {
+                MessageBox.Show("Paciente apagado com sucesso", "Deletar paciente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                DialogResult = MessageBox.Show("Paciente possui informações salvas no banco, deseja apagar mesmo assim?", "Deletar Paciente", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(DialogResult == DialogResult.Yes)
+                {
+                    EnderecoRepository.DeletePessoa(pessoa.Id);
+                    PacienteRepository.DeletePessoa(pessoa.Id);
+                    PessoaRepository.Delete(pessoa);
+                }
+                else
+                {
+                    Close();
+                }
+            }
+            PopulaDataGridPessoa();
         }
 
         private void gridPacientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -155,6 +175,11 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms
         {
             Form2 f2 = new Form2(this);
             f2.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
