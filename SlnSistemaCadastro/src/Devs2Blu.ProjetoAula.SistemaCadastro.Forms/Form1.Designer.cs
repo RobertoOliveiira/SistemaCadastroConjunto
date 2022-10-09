@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.gpFormCadastro = new System.Windows.Forms.GroupBox();
+            this.buttonCadConv = new System.Windows.Forms.Button();
             this.txtCGCCPF = new System.Windows.Forms.MaskedTextBox();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -64,7 +65,6 @@
             this.btnInfo = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.buttonCadConv = new System.Windows.Forms.Button();
             this.gpFormCadastro.SuspendLayout();
             this.gpEnderecoCadastro.SuspendLayout();
             this.gpTipoPessoa.SuspendLayout();
@@ -92,6 +92,16 @@
             this.gpFormCadastro.TabIndex = 3;
             this.gpFormCadastro.TabStop = false;
             this.gpFormCadastro.Text = "Formulário de Cadastro";
+            // 
+            // buttonCadConv
+            // 
+            this.buttonCadConv.Location = new System.Drawing.Point(180, 85);
+            this.buttonCadConv.Name = "buttonCadConv";
+            this.buttonCadConv.Size = new System.Drawing.Size(32, 21);
+            this.buttonCadConv.TabIndex = 18;
+            this.buttonCadConv.Text = "+";
+            this.buttonCadConv.UseVisualStyleBackColor = true;
+            this.buttonCadConv.Click += new System.EventHandler(this.buttonCadConv_Click);
             // 
             // txtCGCCPF
             // 
@@ -452,16 +462,7 @@
             this.button1.TabIndex = 19;
             this.button1.Text = "Alterar";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // buttonCadConv
-            // 
-            this.buttonCadConv.Location = new System.Drawing.Point(180, 85);
-            this.buttonCadConv.Name = "buttonCadConv";
-            this.buttonCadConv.Size = new System.Drawing.Size(32, 21);
-            this.buttonCadConv.TabIndex = 18;
-            this.buttonCadConv.Text = "+";
-            this.buttonCadConv.UseVisualStyleBackColor = true;
-            this.buttonCadConv.Click += new System.EventHandler(this.buttonCadConv_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
