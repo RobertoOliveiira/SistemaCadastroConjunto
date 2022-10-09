@@ -1,0 +1,12 @@
+E:\Devs2Blu\BancoDados\Aula4\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.dll
+E:\Devs2Blu\BancoDados\Aula4\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.pdb
+E:\Devs2Blu\BancoDados\Aula4\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.csproj.AssemblyReference.cache
+E:\Devs2Blu\BancoDados\Aula4\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.csproj.CoreCompileInputs.cache
+E:\Devs2Blu\BancoDados\Aula4\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.dll
+E:\Devs2Blu\BancoDados\Aula4\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.pdb
+D:\Sistema Cadastro trabalho\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.dll
+D:\Sistema Cadastro trabalho\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.pdb
+D:\Sistema Cadastro trabalho\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.csproj.AssemblyReference.cache
+D:\Sistema Cadastro trabalho\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.csproj.CoreCompileInputs.cache
+D:\Sistema Cadastro trabalho\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.dll
+D:\Sistema Cadastro trabalho\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.pdb
