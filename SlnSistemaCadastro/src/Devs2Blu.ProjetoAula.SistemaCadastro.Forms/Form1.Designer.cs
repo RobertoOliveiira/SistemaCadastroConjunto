@@ -30,9 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.gpFormCadastro = new System.Windows.Forms.GroupBox();
+            this.buttonCadConv = new System.Windows.Forms.Button();
             this.txtCGCCPF = new System.Windows.Forms.MaskedTextBox();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.lblCGCCPF = new System.Windows.Forms.Label();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.gpTipoPessoa = new System.Windows.Forms.GroupBox();
+            this.rdJuridica = new System.Windows.Forms.RadioButton();
+            this.rdFisica = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cboConvenio = new System.Windows.Forms.ComboBox();
             this.gpEnderecoCadastro = new System.Windows.Forms.GroupBox();
             this.mskCEP = new System.Windows.Forms.MaskedTextBox();
             this.txtBairro = new System.Windows.Forms.TextBox();
@@ -46,40 +57,26 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lblCGCCPF = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.gpTipoPessoa = new System.Windows.Forms.GroupBox();
-            this.rdJuridica = new System.Windows.Forms.RadioButton();
-            this.rdFisica = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cboConvenio = new System.Windows.Forms.ComboBox();
-            this.btnSalvar = new System.Windows.Forms.Button();
-            this.gpConteudo = new System.Windows.Forms.GroupBox();
             this.gridPacientes = new System.Windows.Forms.DataGridView();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.buttonCadConv = new System.Windows.Forms.Button();
             this.gpFormCadastro.SuspendLayout();
-            this.gpEnderecoCadastro.SuspendLayout();
             this.gpTipoPessoa.SuspendLayout();
-            this.gpConteudo.SuspendLayout();
+            this.gpEnderecoCadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPacientes)).BeginInit();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpFormCadastro
             // 
+            this.gpFormCadastro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gpFormCadastro.BackgroundImage")));
+            this.gpFormCadastro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.gpFormCadastro.Controls.Add(this.buttonCadConv);
             this.gpFormCadastro.Controls.Add(this.txtCGCCPF);
-            this.gpFormCadastro.Controls.Add(this.btnLimpar);
             this.gpFormCadastro.Controls.Add(this.txtNome);
-            this.gpFormCadastro.Controls.Add(this.gpEnderecoCadastro);
             this.gpFormCadastro.Controls.Add(this.lblCGCCPF);
             this.gpFormCadastro.Controls.Add(this.label3);
             this.gpFormCadastro.Controls.Add(this.label2);
@@ -88,10 +85,20 @@
             this.gpFormCadastro.Controls.Add(this.cboConvenio);
             this.gpFormCadastro.Location = new System.Drawing.Point(12, 27);
             this.gpFormCadastro.Name = "gpFormCadastro";
-            this.gpFormCadastro.Size = new System.Drawing.Size(405, 300);
+            this.gpFormCadastro.Size = new System.Drawing.Size(405, 140);
             this.gpFormCadastro.TabIndex = 3;
             this.gpFormCadastro.TabStop = false;
             this.gpFormCadastro.Text = "Formulário de Cadastro";
+            // 
+            // buttonCadConv
+            // 
+            this.buttonCadConv.Location = new System.Drawing.Point(180, 85);
+            this.buttonCadConv.Name = "buttonCadConv";
+            this.buttonCadConv.Size = new System.Drawing.Size(32, 21);
+            this.buttonCadConv.TabIndex = 18;
+            this.buttonCadConv.Text = "+";
+            this.buttonCadConv.UseVisualStyleBackColor = true;
+            this.buttonCadConv.Click += new System.EventHandler(this.buttonCadConv_Click);
             // 
             // txtCGCCPF
             // 
@@ -103,10 +110,10 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.BackColor = System.Drawing.Color.Red;
+            this.btnLimpar.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLimpar.Location = new System.Drawing.Point(10, 251);
+            this.btnLimpar.Location = new System.Drawing.Point(311, 333);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 33);
             this.btnLimpar.TabIndex = 14;
@@ -114,16 +121,127 @@
             this.btnLimpar.UseVisualStyleBackColor = false;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.Transparent;
+            this.btnExcluir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExcluir.BackgroundImage")));
+            this.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExcluir.FlatAppearance.BorderSize = 0;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluir.Location = new System.Drawing.Point(171, 333);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(53, 53);
+            this.btnExcluir.TabIndex = 14;
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // txtNome
             // 
+            this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNome.ForeColor = System.Drawing.SystemColors.InfoText;
             this.txtNome.Location = new System.Drawing.Point(73, 26);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(311, 20);
+            this.txtNome.Size = new System.Drawing.Size(311, 13);
             this.txtNome.TabIndex = 11;
+            // 
+            // lblCGCCPF
+            // 
+            this.lblCGCCPF.AutoSize = true;
+            this.lblCGCCPF.Location = new System.Drawing.Point(40, 60);
+            this.lblCGCCPF.Name = "lblCGCCPF";
+            this.lblCGCCPF.Size = new System.Drawing.Size(27, 13);
+            this.lblCGCCPF.TabIndex = 9;
+            this.lblCGCCPF.Text = "CPF";
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.BackColor = System.Drawing.Color.Transparent;
+            this.btnSalvar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalvar.BackgroundImage")));
+            this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSalvar.FlatAppearance.BorderSize = 0;
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSalvar.Location = new System.Drawing.Point(19, 333);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(50, 53);
+            this.btnSalvar.TabIndex = 13;
+            this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(135, 207);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(32, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Nome";
+            // 
+            // gpTipoPessoa
+            // 
+            this.gpTipoPessoa.Controls.Add(this.rdJuridica);
+            this.gpTipoPessoa.Controls.Add(this.rdFisica);
+            this.gpTipoPessoa.Location = new System.Drawing.Point(234, 57);
+            this.gpTipoPessoa.Name = "gpTipoPessoa";
+            this.gpTipoPessoa.Size = new System.Drawing.Size(150, 47);
+            this.gpTipoPessoa.TabIndex = 7;
+            this.gpTipoPessoa.TabStop = false;
+            this.gpTipoPessoa.Text = "Tipo Pessoa";
+            // 
+            // rdJuridica
+            // 
+            this.rdJuridica.AutoSize = true;
+            this.rdJuridica.Location = new System.Drawing.Point(77, 19);
+            this.rdJuridica.Name = "rdJuridica";
+            this.rdJuridica.Size = new System.Drawing.Size(63, 17);
+            this.rdJuridica.TabIndex = 7;
+            this.rdJuridica.Text = "Jurídica";
+            this.rdJuridica.UseVisualStyleBackColor = true;
+            this.rdJuridica.CheckedChanged += new System.EventHandler(this.rdJuridica_CheckedChanged);
+            // 
+            // rdFisica
+            // 
+            this.rdFisica.AutoSize = true;
+            this.rdFisica.Checked = true;
+            this.rdFisica.Location = new System.Drawing.Point(6, 19);
+            this.rdFisica.Name = "rdFisica";
+            this.rdFisica.Size = new System.Drawing.Size(54, 17);
+            this.rdFisica.TabIndex = 6;
+            this.rdFisica.TabStop = true;
+            this.rdFisica.Text = "Física";
+            this.rdFisica.UseVisualStyleBackColor = true;
+            this.rdFisica.CheckedChanged += new System.EventHandler(this.rdFisica_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 88);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Convênio";
+            // 
+            // cboConvenio
+            // 
+            this.cboConvenio.FormattingEnabled = true;
+            this.cboConvenio.Location = new System.Drawing.Point(73, 85);
+            this.cboConvenio.Name = "cboConvenio";
+            this.cboConvenio.Size = new System.Drawing.Size(101, 21);
+            this.cboConvenio.TabIndex = 2;
             // 
             // gpEnderecoCadastro
             // 
-            this.gpEnderecoCadastro.BackColor = System.Drawing.Color.Gainsboro;
+            this.gpEnderecoCadastro.BackColor = System.Drawing.Color.SteelBlue;
+            this.gpEnderecoCadastro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gpEnderecoCadastro.BackgroundImage")));
             this.gpEnderecoCadastro.Controls.Add(this.mskCEP);
             this.gpEnderecoCadastro.Controls.Add(this.txtBairro);
             this.gpEnderecoCadastro.Controls.Add(this.txtNumero);
@@ -136,9 +254,10 @@
             this.gpEnderecoCadastro.Controls.Add(this.label5);
             this.gpEnderecoCadastro.Controls.Add(this.label4);
             this.gpEnderecoCadastro.Controls.Add(this.label6);
-            this.gpEnderecoCadastro.Location = new System.Drawing.Point(10, 121);
+            this.gpEnderecoCadastro.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.gpEnderecoCadastro.Location = new System.Drawing.Point(12, 173);
             this.gpEnderecoCadastro.Name = "gpEnderecoCadastro";
-            this.gpEnderecoCadastro.Size = new System.Drawing.Size(389, 115);
+            this.gpEnderecoCadastro.Size = new System.Drawing.Size(405, 140);
             this.gpEnderecoCadastro.TabIndex = 10;
             this.gpEnderecoCadastro.TabStop = false;
             this.gpEnderecoCadastro.Text = "Endereço/Contato";
@@ -269,118 +388,15 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "Nº";
             // 
-            // lblCGCCPF
-            // 
-            this.lblCGCCPF.AutoSize = true;
-            this.lblCGCCPF.Location = new System.Drawing.Point(40, 60);
-            this.lblCGCCPF.Name = "lblCGCCPF";
-            this.lblCGCCPF.Size = new System.Drawing.Size(27, 13);
-            this.lblCGCCPF.TabIndex = 9;
-            this.lblCGCCPF.Text = "CPF";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(135, 207);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 13);
-            this.label3.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Nome";
-            // 
-            // gpTipoPessoa
-            // 
-            this.gpTipoPessoa.Controls.Add(this.rdJuridica);
-            this.gpTipoPessoa.Controls.Add(this.rdFisica);
-            this.gpTipoPessoa.Location = new System.Drawing.Point(234, 57);
-            this.gpTipoPessoa.Name = "gpTipoPessoa";
-            this.gpTipoPessoa.Size = new System.Drawing.Size(150, 47);
-            this.gpTipoPessoa.TabIndex = 7;
-            this.gpTipoPessoa.TabStop = false;
-            this.gpTipoPessoa.Text = "Tipo Pessoa";
-            // 
-            // rdJuridica
-            // 
-            this.rdJuridica.AutoSize = true;
-            this.rdJuridica.Location = new System.Drawing.Point(77, 19);
-            this.rdJuridica.Name = "rdJuridica";
-            this.rdJuridica.Size = new System.Drawing.Size(63, 17);
-            this.rdJuridica.TabIndex = 7;
-            this.rdJuridica.Text = "Jurídica";
-            this.rdJuridica.UseVisualStyleBackColor = true;
-            this.rdJuridica.CheckedChanged += new System.EventHandler(this.rdJuridica_CheckedChanged);
-            // 
-            // rdFisica
-            // 
-            this.rdFisica.AutoSize = true;
-            this.rdFisica.Checked = true;
-            this.rdFisica.Location = new System.Drawing.Point(6, 19);
-            this.rdFisica.Name = "rdFisica";
-            this.rdFisica.Size = new System.Drawing.Size(54, 17);
-            this.rdFisica.TabIndex = 6;
-            this.rdFisica.TabStop = true;
-            this.rdFisica.Text = "Física";
-            this.rdFisica.UseVisualStyleBackColor = true;
-            this.rdFisica.CheckedChanged += new System.EventHandler(this.rdFisica_CheckedChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Convênio";
-            // 
-            // cboConvenio
-            // 
-            this.cboConvenio.FormattingEnabled = true;
-            this.cboConvenio.Location = new System.Drawing.Point(73, 85);
-            this.cboConvenio.Name = "cboConvenio";
-            this.cboConvenio.Size = new System.Drawing.Size(101, 21);
-            this.cboConvenio.TabIndex = 2;
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.BackColor = System.Drawing.Color.Transparent;
-            this.btnSalvar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalvar.BackgroundImage")));
-            this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSalvar.FlatAppearance.BorderSize = 0;
-            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalvar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalvar.Location = new System.Drawing.Point(12, 346);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(50, 53);
-            this.btnSalvar.TabIndex = 13;
-            this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSalvar.UseVisualStyleBackColor = false;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
-            // gpConteudo
-            // 
-            this.gpConteudo.Controls.Add(this.gridPacientes);
-            this.gpConteudo.Location = new System.Drawing.Point(432, 27);
-            this.gpConteudo.Name = "gpConteudo";
-            this.gpConteudo.Size = new System.Drawing.Size(423, 397);
-            this.gpConteudo.TabIndex = 4;
-            this.gpConteudo.TabStop = false;
-            // 
             // gridPacientes
             // 
             this.gridPacientes.AllowUserToAddRows = false;
             this.gridPacientes.AllowUserToOrderColumns = true;
             this.gridPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridPacientes.Location = new System.Drawing.Point(6, 13);
+            this.gridPacientes.Location = new System.Drawing.Point(423, 27);
             this.gridPacientes.Name = "gridPacientes";
             this.gridPacientes.ReadOnly = true;
-            this.gridPacientes.Size = new System.Drawing.Size(411, 375);
+            this.gridPacientes.Size = new System.Drawing.Size(448, 413);
             this.gridPacientes.TabIndex = 5;
             this.gridPacientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridPacientes_CellContentClick);
             // 
@@ -407,20 +423,6 @@
             this.menuStrip2.TabIndex = 5;
             this.menuStrip2.Text = "menuStrip2";
             // 
-            // btnExcluir
-            // 
-            this.btnExcluir.BackColor = System.Drawing.Color.Transparent;
-            this.btnExcluir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExcluir.BackgroundImage")));
-            this.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnExcluir.FlatAppearance.BorderSize = 0;
-            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Location = new System.Drawing.Point(86, 346);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(53, 53);
-            this.btnExcluir.TabIndex = 14;
-            this.btnExcluir.UseVisualStyleBackColor = false;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
             // btnInfo
             // 
             this.btnInfo.BackColor = System.Drawing.Color.Transparent;
@@ -428,64 +430,45 @@
             this.btnInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnInfo.FlatAppearance.BorderSize = 0;
             this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfo.Location = new System.Drawing.Point(280, 346);
+            this.btnInfo.Location = new System.Drawing.Point(96, 333);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(57, 53);
             this.btnInfo.TabIndex = 16;
             this.btnInfo.UseVisualStyleBackColor = false;
             this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(19, 402);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(31, 13);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Celta";
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(351, 333);
+            this.button1.Location = new System.Drawing.Point(321, 383);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 19;
             this.button1.Text = "Alterar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // buttonCadConv
-            // 
-            this.buttonCadConv.Location = new System.Drawing.Point(180, 85);
-            this.buttonCadConv.Name = "buttonCadConv";
-            this.buttonCadConv.Size = new System.Drawing.Size(32, 21);
-            this.buttonCadConv.TabIndex = 18;
-            this.buttonCadConv.Text = "+";
-            this.buttonCadConv.UseVisualStyleBackColor = true;
-            this.buttonCadConv.Click += new System.EventHandler(this.buttonCadConv_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 452);
+            this.Controls.Add(this.gpEnderecoCadastro);
+            this.Controls.Add(this.gridPacientes);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.btnExcluir);
-            this.Controls.Add(this.gpConteudo);
-            this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.gpFormCadastro);
+            this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.menuStrip2);
             this.Name = "Form1";
             this.Text = "+Devs2Blu - Sistema de Cadastro Hospitalar";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gpFormCadastro.ResumeLayout(false);
             this.gpFormCadastro.PerformLayout();
-            this.gpEnderecoCadastro.ResumeLayout(false);
-            this.gpEnderecoCadastro.PerformLayout();
             this.gpTipoPessoa.ResumeLayout(false);
             this.gpTipoPessoa.PerformLayout();
-            this.gpConteudo.ResumeLayout(false);
+            this.gpEnderecoCadastro.ResumeLayout(false);
+            this.gpEnderecoCadastro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPacientes)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
@@ -521,7 +504,6 @@
         private System.Windows.Forms.MaskedTextBox mskCEP;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.GroupBox gpConteudo;
         private System.Windows.Forms.DataGridView gridPacientes;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
@@ -529,7 +511,6 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.MaskedTextBox txtCGCCPF;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonCadConv;
     }

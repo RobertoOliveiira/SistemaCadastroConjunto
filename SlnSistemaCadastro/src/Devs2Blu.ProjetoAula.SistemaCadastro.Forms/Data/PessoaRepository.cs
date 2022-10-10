@@ -48,7 +48,42 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
                 throw;
             }
         }
+        public void Delete(Pessoa pessoa)
+        {
+            try
+            {
+                MySqlConnection conn = ConnectionMySQL.GetConnection();
+                MySqlCommand cmd = new MySqlCommand(SQL_DELETE_PESSOA, conn);
+                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = pessoa.Id;
 
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException myExc)
+            {
+                MessageBox.Show(myExc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+        public void Update(Pessoa pessoa)
+        {
+            try
+            {
+                MySqlConnection conn = ConnectionMySQL.GetConnection();
+                MySqlCommand cmd = new MySqlCommand(SQL_UPDATE_PESSOA, conn);
+
+                cmd.Parameters.Add("@nome", MySqlDbType.VarChar, 50).Value = pessoa.Nome;
+                cmd.Parameters.Add("@cgccpf", MySqlDbType.VarChar, 25).Value = pessoa.CGCCPF;
+                cmd.Parameters.Add("@tipopessoa", MySqlDbType.Enum).Value = pessoa.TipoPessoa;
+
+                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = pessoa.Id;
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException myExc)
+            {
+                MessageBox.Show(myExc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
         #region SQLS
         private const String SQL_INSERT_PESSOA = @"INSERT INTO pessoa
 (nome,
@@ -62,6 +97,12 @@ VALUES
 'A')";
         
         private const String SQL_SELECT_PESSOAS = @"SELECT id, nome, cgccpf, flstatus from pessoa";
+        private const String SQL_DELETE_PESSOA = @"DELETE FROM pessoa WHERE id = @id";
+        private const String SQL_UPDATE_PESSOA = @"UPDATE SET 
+nome = @nome,
+cgccpf = @cpf,
+tipopessoa = @tipopessoa,
+";
         #endregion
     }
 }
