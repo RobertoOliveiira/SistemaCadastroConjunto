@@ -50,6 +50,25 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
             }
         }
 
+        public MySqlDataReader GetPessoasById(int id)
+        {
+            MySqlConnection conn = ConnectionMySQL.GetConnection();
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(SQL_SELECT_PESSOA_ID, conn);
+                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                return dataReader;
+            }
+            catch (MySqlException myExc)
+            {
+                MessageBox.Show(myExc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+
         public void Update(Pessoa pessoa)
         {
             try
@@ -103,11 +122,13 @@ VALUES
         
         private const String SQL_SELECT_PESSOAS = @"SELECT id, nome, cgccpf, flstatus from pessoa";
 
+        private const String SQL_SELECT_PESSOA_ID = @"SELECT * WHERE id = @id";
+
         private const String SQL_UPDATE_PESSOA = @"UPDATE pessoa
 SET
-nome = @nome,
-cgccpf = @cgccpf,
-tipopessoa = @tipopessoa,
+nome = '@nome',
+cgccpf = '@cgccpf',
+tipopessoa = '@tipopessoa',
 WHERE id = @id;";
 
         private const String SQL_DELETE_PESSOA = @"DELETE FROM pessoa WHERE id = @id ";

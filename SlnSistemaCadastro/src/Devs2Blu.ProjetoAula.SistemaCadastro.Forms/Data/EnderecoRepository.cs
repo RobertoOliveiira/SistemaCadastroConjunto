@@ -41,7 +41,7 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
             {
                 MySqlConnection conn = ConnectionMySQL.GetConnection();
                 MySqlCommand cmd = new MySqlCommand(SQL_UPDATE_ENDERECO, conn);
-                cmd.Parameters.Add("@idPessoa", MySqlDbType.Int32).Value = endereco.Pessoa.Id;
+                cmd.Parameters.Add("@id_pessoa", MySqlDbType.Int32).Value = endereco.Pessoa.Id;
                 cmd.Parameters.Add("@CEP", MySqlDbType.VarChar, 15).Value = endereco.CEP;
                 cmd.Parameters.Add("@rua", MySqlDbType.VarChar, 45).Value = endereco.Rua;
                 cmd.Parameters.Add("@numero", MySqlDbType.Int32).Value = endereco.Numero;
@@ -134,13 +134,13 @@ VALUES
 
         private const String SQL_UPDATE_ENDERECO = @"UPDATE endereco
 SET
-id_pessoa = @id_pessoa,
-CEP = @CEP,
-rua = @rua,
-numero = @numero,
-bairro = @bairro,
-cidade = @cidade,
-uf = @uf
+id_pessoa = '@id_pessoa',
+CEP = '@CEP',
+rua = '@rua',
+numero = '@numero',
+bairro = '@bairro',
+cidade = '@cidade',
+uf = '@uf'
 WHERE id = @id";
 
         private const String SQL_DELETE_ENDERECO = @"DELETE FROM endereco WHERE id = @id ";

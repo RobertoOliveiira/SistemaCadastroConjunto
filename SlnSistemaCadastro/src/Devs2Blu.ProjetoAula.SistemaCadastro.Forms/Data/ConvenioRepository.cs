@@ -52,7 +52,7 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
             try
             {
                 MySqlConnection conn = ConnectionMySQL.GetConnection();
-                MySqlCommand cmd = new MySqlCommand(SQL_INSERT_CONVENIO, conn);
+                MySqlCommand cmd = new MySqlCommand(SQL_UPDATE_CONVENIO, conn);
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar, 45).Value = convenio.Nome;
                 cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = convenio.Id;
 
@@ -88,6 +88,7 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
         #region SQLS
         private const String SQL_SELECT_CONVENIO = "SELECT * FROM convenio";
 
+
         private const String SQL_INSERT_CONVENIO = @"INSERT INTO convenio
 (nome,
 flstatus)
@@ -97,7 +98,7 @@ VALUES
         private const String SQL_DELETE_CONVENIO = @"DELETE FROM convenio WHERE id = @id";
 
         private const String SQL_UPDATE_CONVENIO = @"UPDATE convenio
-SET nome = @nome
+SET nome = '@nome'
 WHERE id = @id";
         #endregion
 

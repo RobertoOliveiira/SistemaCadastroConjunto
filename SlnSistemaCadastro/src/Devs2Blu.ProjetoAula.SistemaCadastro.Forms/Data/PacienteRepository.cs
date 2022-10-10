@@ -124,8 +124,8 @@ VALUES
         
         private const String SQL_UPDATE_PACIENTE = @"UPDATE paciente
 SET
-id_pessoa = @id_pessoa,
-id_convenio = @id_convenio,
+id_pessoa = '@id_pessoa',
+id_convenio = '@id_convenio',
 WHERE id = @id;";
 
         private const String SQL_DELETE_PACIENTE = @"DELETE FROM paciente WHERE id = @id ";
