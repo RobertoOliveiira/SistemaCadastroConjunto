@@ -57,10 +57,20 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms
             if (!(rdFisica.Checked || rdJuridica.Checked)) return "Selecione o tipo de usuário";
             return "";
         }
+
+        public void Limpar()
+        {
+            txtNome.Clear();
+            txtCGCCPF.Clear();
+            mskCEP.Clear();
+            txtCidade.Clear();
+            txtBairro.Clear();
+            txtRua.Clear();
+            txtNumero.Clear();
+        }
         #endregion
 
         #region Events
-
         private void Form1_Load(object sender, EventArgs e)
         {
             #region TesteConexao
@@ -115,6 +125,7 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms
                 {
                     MessageBox.Show($"Pessoa {paciente.Pessoa.Id} - {paciente.Pessoa.Nome} salva com sucesso!", "Adicionar Pessoa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     PopulaDataGridPessoa();
+                    Limpar();
                 }
             }
             else
@@ -122,8 +133,6 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms
                 MessageBox.Show(ValidaForm(), "Cadastro de Usuário", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        #endregion
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
@@ -155,38 +164,65 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms
             PopulaDataGridPessoa();
         }
 
-        private void gridPacientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            txtNome.Clear();
-            txtCGCCPF.Clear();
-            mskCEP.Clear();
-            txtCidade.Clear();
-            txtBairro.Clear();
-            txtRua.Clear();
-            txtNumero.Clear();
+            Limpar();
         }
 
         private void buttonCadConv_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2(this);
             f2.Show();
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
             
-        }
+            if (ValidaForm().Equals(""))
+            {
+                Pessoa pessoa = new Pessoa();
+                pessoa.Id = (int)gridPacientes.CurrentRow.Cells[0].Value;
 
-        private void button1_Click(object sender, EventArgs e)
+                pessoa.Nome = txtNome.Text;
+                pessoa.CGCCPF = txtCGCCPF.Text.Replace(',', '.');
+                PessoaRepository.Update(pessoa);
+
+                Endereco endereco = new Endereco(pessoa, mskCEP.Text.Replace(',', '.'), txtRua.Text,
+                    Int32.Parse(txtNumero.Text), txtBairro.Text, txtCidade.Text, cboUF.Text);
+                EnderecoRepository.Update(endereco);
+
+                Paciente paciente = new Paciente();
+                paciente.Pessoa.Id = pessoa.Id;
+                paciente.Convenio.Id = (int)cboConvenio.SelectedValue;
+                PacienteRepository.Update(paciente);
+
+                PopulaDataGridPessoa();
+                Limpar();
+            }
+            else
+            {
+                MessageBox.Show(ValidaForm(), "Cadastro de Usuário", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void gridPacientes_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
+            var tbPessoa = PessoaRepository.GetPessoaById((int)gridPacientes.CurrentRow.Cells[0].Value);
+            if (tbPessoa.Read())
+            {
+                txtNome.Text = tbPessoa.GetValue(1).ToString();
+                txtCGCCPF.Text = tbPessoa.GetValue(2).ToString();
+            }
+            var tbEndereco = EnderecoRepository.GetEnderecoByPessoaId((int)gridPacientes.CurrentRow.Cells[0].Value);
+            if (tbEndereco.Read())
+            {
+                mskCEP.Text = tbEndereco.GetValue(2).ToString();
+                txtCidade.Text = tbEndereco.GetValue(6).ToString(); ;
+                txtBairro.Text = tbEndereco.GetValue(5).ToString(); ;
+                txtRua.Text = tbEndereco.GetValue(3).ToString(); ;
+                txtNumero.Text = tbEndereco.GetValue(4).ToString();
+            }
         }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
 
 

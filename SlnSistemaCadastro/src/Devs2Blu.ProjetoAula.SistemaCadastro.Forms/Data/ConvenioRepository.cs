@@ -52,7 +52,7 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
             try
             {
                 MySqlConnection conn = ConnectionMySQL.GetConnection();
-                MySqlCommand cmd = new MySqlCommand(SQL_INSERT_CONVENIO, conn);
+                MySqlCommand cmd = new MySqlCommand(SQL_UPDATE_CONVENIO, conn);
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar, 45).Value = convenio.Nome;
                 cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = convenio.Id;
 
@@ -65,7 +65,7 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
             }
         }
 
-        //retorna uma string infromando se o convenio foi apagado ou se contem tabelas relacionadas.
+        //retorna uma string informando se o convenio foi apagado ou se contem tabelas relacionadas.
         public String Delete(Convenio convenio)
         {
             try
@@ -85,8 +85,29 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
             }
         }
 
+        public MySqlDataReader GetConvenioById(int id)
+        {
+
+            MySqlConnection conn = ConnectionMySQL.GetConnection();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(SQL_SELECT_CONVENIO_ID, conn);
+                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                return dataReader;
+            }
+            catch (MySqlException myExc)
+            {
+                MessageBox.Show(myExc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            // DataSet data = new DataSet();
+        }
+
         #region SQLS
         private const String SQL_SELECT_CONVENIO = "SELECT * FROM convenio";
+
+        private const String SQL_SELECT_CONVENIO_ID = "SELECT * FROM convenio WHERE id = @id";
 
         private const String SQL_INSERT_CONVENIO = @"INSERT INTO convenio
 (nome,
@@ -97,7 +118,7 @@ VALUES
         private const String SQL_DELETE_CONVENIO = @"DELETE FROM convenio WHERE id = @id";
 
         private const String SQL_UPDATE_CONVENIO = @"UPDATE convenio
-SET nome = @nome
+SET nome = '@nome'
 WHERE id = @id";
         #endregion
 

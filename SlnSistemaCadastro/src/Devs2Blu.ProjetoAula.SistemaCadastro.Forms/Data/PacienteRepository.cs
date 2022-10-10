@@ -86,7 +86,26 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
                 throw;
             }
         }
+        public MySqlDataReader GetPacienteByIdPessoa(int id)
+        {
+            MySqlConnection conn = ConnectionMySQL.GetConnection();
 
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(SQL_SELECT_PACIENTE_ID, conn);
+                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                return dataReader;
+            }
+            catch (MySqlException myExc)
+            {
+                MessageBox.Show(myExc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+
+        //apaga o paciente mesmo se houver mais tabelas com ele
         public void DeletePessoa(int id_pessoa)
         {
             try
@@ -119,11 +138,13 @@ VALUES
 'A',
 0)";
         private const String SQL_SELECT_PACIENTE = @"SELECT * from paciente";
-        
+
+        private const String SQL_SELECT_PACIENTE_ID = @"SELECT * from paciente WHERE id_pessoa = @id";
+
         private const String SQL_UPDATE_PACIENTE = @"UPDATE paciente
 SET
-id_pessoa = @id_pessoa,
-id_convenio = @id_convenio,
+id_pessoa = '@id_pessoa',
+id_convenio = '@id_convenio'
 WHERE id = @id;";
 
         private const String SQL_DELETE_PACIENTE = @"DELETE FROM paciente WHERE id = @id ";

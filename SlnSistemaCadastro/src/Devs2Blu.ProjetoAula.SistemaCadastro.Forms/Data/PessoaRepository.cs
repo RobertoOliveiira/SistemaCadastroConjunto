@@ -1,4 +1,5 @@
 ﻿using Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data;
+using Devs2Blu.ProjetosAula.SistemaCadastro.Models.Enum;
 using Devs2Blu.ProjetosAula.SistemaCadastro.Models.Model;
 using MySql.Data.MySqlClient;
 using System;
@@ -50,6 +51,25 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
             }
         }
 
+        public MySqlDataReader GetPessoaById(int id)
+        {
+            MySqlConnection conn = ConnectionMySQL.GetConnection();
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(SQL_SELECT_PESSOAS_ID, conn);
+                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                return dataReader;
+            }
+            catch (MySqlException myExc)
+            {
+                MessageBox.Show(myExc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+
         public void Update(Pessoa pessoa)
         {
             try
@@ -58,7 +78,7 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
                 MySqlCommand cmd = new MySqlCommand(SQL_UPDATE_PESSOA, conn);
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar, 45).Value = pessoa.Nome;
                 cmd.Parameters.Add("@cgccpf", MySqlDbType.VarChar, 25).Value = pessoa.CGCCPF;
-                cmd.Parameters.Add("@tipopessoa", MySqlDbType.Enum).Value = pessoa.TipoPessoa;
+               
                 cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = pessoa.Id;
 
                 cmd.ExecuteNonQuery();
@@ -84,8 +104,6 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
             catch (MySqlException myExc)
             {
                 return false;
-                MessageBox.Show(myExc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
             }
         }
 
@@ -102,13 +120,13 @@ VALUES
 'A')";
         
         private const String SQL_SELECT_PESSOAS = @"SELECT id, nome, cgccpf, flstatus from pessoa";
+        private const String SQL_SELECT_PESSOAS_ID = @"SELECT id, nome, cgccpf from pessoa WHERE id = @id";
 
         private const String SQL_UPDATE_PESSOA = @"UPDATE pessoa
 SET
 nome = @nome,
-cgccpf = @cgccpf,
-tipopessoa = @tipopessoa,
-WHERE id = @id;";
+cgccpf = @cgccpf
+WHERE id = @id";
 
         private const String SQL_DELETE_PESSOA = @"DELETE FROM pessoa WHERE id = @id ";
         #endregion

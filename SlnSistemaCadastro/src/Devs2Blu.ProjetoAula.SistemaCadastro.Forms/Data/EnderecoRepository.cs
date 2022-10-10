@@ -41,7 +41,6 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
             {
                 MySqlConnection conn = ConnectionMySQL.GetConnection();
                 MySqlCommand cmd = new MySqlCommand(SQL_UPDATE_ENDERECO, conn);
-                cmd.Parameters.Add("@idPessoa", MySqlDbType.Int32).Value = endereco.Pessoa.Id;
                 cmd.Parameters.Add("@CEP", MySqlDbType.VarChar, 15).Value = endereco.CEP;
                 cmd.Parameters.Add("@rua", MySqlDbType.VarChar, 45).Value = endereco.Rua;
                 cmd.Parameters.Add("@numero", MySqlDbType.Int32).Value = endereco.Numero;
@@ -49,7 +48,7 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
                 cmd.Parameters.Add("@cidade", MySqlDbType.VarChar, 45).Value = endereco.Cidade;
                 cmd.Parameters.Add("@uf", MySqlDbType.VarChar, 2).Value = endereco.UF;
 
-                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = endereco.Id;
+                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = endereco.Pessoa.Id;
 
                 cmd.ExecuteNonQuery();
             }
@@ -76,7 +75,26 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
             }
             // DataSet data = new DataSet();
         }
-        
+
+        public MySqlDataReader GetEnderecoByPessoaId(int id)
+        {
+
+            MySqlConnection conn = ConnectionMySQL.GetConnection();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(SQL_SELECT_ENDERECO_ID, conn);
+                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                return dataReader;
+            }
+            catch (MySqlException myExc)
+            {
+                MessageBox.Show(myExc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            // DataSet data = new DataSet();
+        }
+
         public void Delete(Endereco endereco)
         {
             try
@@ -94,7 +112,7 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
                 throw;
             }
         }
-
+        //apaga o paciente mesmo se houver mais tabelas com ele
         public void DeletePessoa(int id_pessoa)
         {
             try
@@ -132,16 +150,17 @@ VALUES
 @uf);";
         private const String SQL_SELECT_ENDERECO = @"SELECT * FROM endereco";
 
+        private const String SQL_SELECT_ENDERECO_ID = @"SELECT * FROM endereco WHERE id_pessoa = @id";
+
         private const String SQL_UPDATE_ENDERECO = @"UPDATE endereco
 SET
-id_pessoa = @id_pessoa,
 CEP = @CEP,
 rua = @rua,
 numero = @numero,
 bairro = @bairro,
 cidade = @cidade,
 uf = @uf
-WHERE id = @id";
+WHERE id_pessoa = @id";
 
         private const String SQL_DELETE_ENDERECO = @"DELETE FROM endereco WHERE id = @id ";
         private const String SQL_DELETE_PESSOA = @"DELETE FROM endereco WHERE id_pessoa = @id_pessoa ";
