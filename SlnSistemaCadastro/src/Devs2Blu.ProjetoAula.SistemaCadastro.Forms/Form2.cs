@@ -39,6 +39,7 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms
         {
             Convenio convenio = new Convenio(textBoxNome.Text);
             _parent.ConvenioRepository.Save(convenio);
+            _parent.PopulaComboConvenio();
             Close();
         }
     }

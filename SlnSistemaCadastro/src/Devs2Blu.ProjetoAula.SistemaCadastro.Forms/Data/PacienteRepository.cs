@@ -110,14 +110,12 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
 (id_pessoa,
 id_convenio,
 numero_prontuario,
-paciente_risco,
 flstatus,
 flobito)
 VALUES
 (@id_pessoa,
 @id_convenio,
 @numero_prontuario,
-@paciente_risco,
 'A',
 0)";
         private const String SQL_SELECT_PACIENTE = @"SELECT * from paciente";
