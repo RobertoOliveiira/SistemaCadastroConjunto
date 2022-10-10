@@ -18,7 +18,7 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data
             {
                 MySqlConnection conn = ConnectionMySQL.GetConnection();
                 MySqlCommand cmd = new MySqlCommand(SQL_INSERT_ENDERECO, conn);
-                cmd.Parameters.Add("@idPessoa", MySqlDbType.Int32).Value = endereco.Pessoa.Id;
+                cmd.Parameters.Add("@id_Pessoa", MySqlDbType.Int32).Value = endereco.Pessoa.Id;
                 cmd.Parameters.Add("@CEP", MySqlDbType.VarChar, 15).Value = endereco.CEP;
                 cmd.Parameters.Add("@rua", MySqlDbType.VarChar, 45).Value = endereco.Rua;
                 cmd.Parameters.Add("@numero", MySqlDbType.Int32).Value = endereco.Numero;

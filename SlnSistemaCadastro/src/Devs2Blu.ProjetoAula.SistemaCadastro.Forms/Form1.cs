@@ -31,7 +31,7 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms
 
         #region Methods
 
-        private void PopulaComboConvenio()
+        public void PopulaComboConvenio()
         {
             var listConvenios = ConvenioRepository.FetchAll();
             cboConvenio.DataSource = new BindingSource(listConvenios, null);
@@ -127,7 +127,7 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Cora \r\nRoberto \r\nBernardo \r\nPedro Evers \r\nJailson", "Desenvolvedores");
+            MessageBox.Show("Cora Amorim \r\nRoberto Oliveira\r\nBernardo Miguel\r\nPedro Evers \r\nJailson Roth", "Desenvolvedores");
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -175,9 +175,15 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms
         {
             Form2 f2 = new Form2(this);
             f2.Show();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }
