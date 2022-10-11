@@ -96,7 +96,6 @@
             // 
             // gpConteudo
             // 
-            this.gpConteudo.Controls.Add(this.button1);
             this.gpConteudo.Controls.Add(this.gridPacientes);
             this.gpConteudo.Font = new System.Drawing.Font("Quicksand", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpConteudo.Location = new System.Drawing.Point(26, 194);
@@ -109,12 +108,17 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(389, 156);
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(137, 22);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(84, 49);
             this.button1.TabIndex = 6;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // gridPacientes
             // 
@@ -152,7 +156,7 @@
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
-            this.menuStrip2.Size = new System.Drawing.Size(951, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(947, 28);
             this.menuStrip2.TabIndex = 5;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -178,10 +182,10 @@
             this.btnInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnInfo.FlatAppearance.BorderSize = 0;
             this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfo.Location = new System.Drawing.Point(843, 570);
+            this.btnInfo.Location = new System.Drawing.Point(843, 564);
             this.btnInfo.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(55, 37);
+            this.btnInfo.Size = new System.Drawing.Size(55, 42);
             this.btnInfo.TabIndex = 16;
             this.btnInfo.UseVisualStyleBackColor = false;
             this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
@@ -281,7 +285,9 @@
             // gpEnderecoCadastro
             // 
             this.gpEnderecoCadastro.BackColor = System.Drawing.Color.White;
+            this.gpEnderecoCadastro.Controls.Add(this.button1);
             this.gpEnderecoCadastro.Controls.Add(this.mskCEP);
+            this.gpEnderecoCadastro.Controls.Add(this.cboUF);
             this.gpEnderecoCadastro.Controls.Add(this.txtRua);
             this.gpEnderecoCadastro.Controls.Add(this.label6);
             this.gpEnderecoCadastro.Controls.Add(this.txtBairro);
@@ -290,7 +296,6 @@
             this.gpEnderecoCadastro.Controls.Add(this.txtNumero);
             this.gpEnderecoCadastro.Controls.Add(this.label7);
             this.gpEnderecoCadastro.Controls.Add(this.label8);
-            this.gpEnderecoCadastro.Controls.Add(this.cboUF);
             this.gpEnderecoCadastro.Controls.Add(this.label9);
             this.gpEnderecoCadastro.Controls.Add(this.txtCidade);
             this.gpEnderecoCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -334,10 +339,10 @@
             // 
             // txtBairro
             // 
-            this.txtBairro.Location = new System.Drawing.Point(168, 112);
+            this.txtBairro.Location = new System.Drawing.Point(163, 112);
             this.txtBairro.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.txtBairro.Name = "txtBairro";
-            this.txtBairro.Size = new System.Drawing.Size(250, 22);
+            this.txtBairro.Size = new System.Drawing.Size(160, 22);
             this.txtBairro.TabIndex = 22;
             // 
             // label4
@@ -371,7 +376,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(115, 115);
+            this.label7.Location = new System.Drawing.Point(110, 115);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 18);
@@ -381,7 +386,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(229, 36);
+            this.label8.Location = new System.Drawing.Point(226, 34);
             this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 18);
@@ -420,7 +425,7 @@
             "SP",
             "SE",
             "TO"});
-            this.cboUF.Location = new System.Drawing.Point(168, 34);
+            this.cboUF.Location = new System.Drawing.Point(367, 109);
             this.cboUF.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.cboUF.Name = "cboUF";
             this.cboUF.Size = new System.Drawing.Size(51, 26);
@@ -429,7 +434,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(136, 39);
+            this.label9.Location = new System.Drawing.Point(333, 115);
             this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(24, 18);
@@ -495,10 +500,10 @@
             this.gpFormCadastro.BackColor = System.Drawing.Color.White;
             this.gpFormCadastro.Controls.Add(this.btnAtualizar);
             this.gpFormCadastro.Controls.Add(this.groupBox1);
+            this.gpFormCadastro.Controls.Add(this.btnInfo);
             this.gpFormCadastro.Controls.Add(this.btnLimpar);
             this.gpFormCadastro.Controls.Add(this.groupBox3);
             this.gpFormCadastro.Controls.Add(this.btnExcluir);
-            this.gpFormCadastro.Controls.Add(this.btnInfo);
             this.gpFormCadastro.Controls.Add(this.gpConteudo);
             this.gpFormCadastro.Controls.Add(this.groupBox2);
             this.gpFormCadastro.Controls.Add(this.buttonCadConv);
@@ -571,7 +576,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(951, 672);
+            this.ClientSize = new System.Drawing.Size(947, 672);
             this.Controls.Add(this.gpFormCadastro);
             this.Controls.Add(this.menuStrip2);
             this.Font = new System.Drawing.Font("Quicksand", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -25,3 +25,5 @@ E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.Pr
 E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.csproj.CopyComplete
 E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\Newtonsoft.Json.dll
 E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\Newtonsoft.Json.xml
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\Correios.dll
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\Correios.pdb

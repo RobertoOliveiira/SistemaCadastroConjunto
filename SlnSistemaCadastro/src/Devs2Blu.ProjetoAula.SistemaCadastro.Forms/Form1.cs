@@ -1,4 +1,5 @@
-﻿using Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data;
+﻿using Correios;
+using Devs2Blu.ProjetoAula.SistemaCadastro.Forms.Data;
 using Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data;
 using Devs2Blu.ProjetosAula.SistemaCadastro.Models.Enum;
 using Devs2Blu.ProjetosAula.SistemaCadastro.Models.Model;
@@ -257,7 +258,25 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms
 
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCGCCPF.Text))
+                MessageBox.Show("O campo de CEP esta vazio", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            else
+            {
+                CorreiosApi correiosApi = new CorreiosApi();
+                var retorno = correiosApi.consultaCEP(mskCEP.Text);
 
-
+                if (retorno is null)
+                {
+                    MessageBox.Show("O campo de CEP esta vazio", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                txtBairro.Text = retorno.bairro;
+                txtCidade.Text = retorno.cidade;
+                txtRua.Text = retorno.end;
+                cboUF.Text = retorno.uf;
+            }
+        }
     }
 }
