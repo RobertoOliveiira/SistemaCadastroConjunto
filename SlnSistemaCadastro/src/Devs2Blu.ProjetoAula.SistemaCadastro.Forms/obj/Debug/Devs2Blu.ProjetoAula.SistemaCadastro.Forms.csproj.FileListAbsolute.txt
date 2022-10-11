@@ -101,3 +101,11 @@ E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.Pr
 E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetoAula.SistemaCadastro.Forms\obj\Debug\Devs2Blu.ProjetoAula.SistemaCadastro.Forms.csproj.CopyComplete
 E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetoAula.SistemaCadastro.Forms\obj\Debug\Devs2Blu.ProjetoAula.SistemaCadastro.Forms.exe
 E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetoAula.SistemaCadastro.Forms\obj\Debug\Devs2Blu.ProjetoAula.SistemaCadastro.Forms.pdb
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetoAula.SistemaCadastro.Forms\bin\Debug\CorrelatorSharp.dll
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetoAula.SistemaCadastro.Forms\bin\Debug\System.Collections.Immutable.dll
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetoAula.SistemaCadastro.Forms\bin\Debug\System.ValueTuple.dll
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetoAula.SistemaCadastro.Forms\bin\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.dll.config
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetoAula.SistemaCadastro.Forms\bin\Debug\System.Collections.Immutable.xml
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetoAula.SistemaCadastro.Forms\bin\Debug\System.ValueTuple.xml
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetoAula.SistemaCadastro.Forms\bin\Debug\Newtonsoft.Json.dll
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetoAula.SistemaCadastro.Forms\bin\Debug\Newtonsoft.Json.xml

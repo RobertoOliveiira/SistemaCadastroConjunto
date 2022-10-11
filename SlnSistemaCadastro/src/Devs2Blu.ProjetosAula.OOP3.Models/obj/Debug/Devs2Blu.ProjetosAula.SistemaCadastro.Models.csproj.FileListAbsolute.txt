@@ -16,3 +16,12 @@ E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.Pr
 E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.csproj.CoreCompileInputs.cache
 E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.dll
 E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.pdb
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.dll.config
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\CorrelatorSharp.dll
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\System.Collections.Immutable.dll
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\System.ValueTuple.dll
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\System.Collections.Immutable.xml
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\System.ValueTuple.xml
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.csproj.CopyComplete
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\Newtonsoft.Json.dll
+E:\DevsAtividadeGrupo\SistemaCadastroConjunto\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\Newtonsoft.Json.xml

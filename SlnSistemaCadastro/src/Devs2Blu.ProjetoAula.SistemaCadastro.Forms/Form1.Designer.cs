@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnSalvar = new System.Windows.Forms.Button();
             this.gpConteudo = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.gridPacientes = new System.Windows.Forms.DataGridView();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,33 +41,33 @@
             this.cboConvenio = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gpTipoPessoa = new System.Windows.Forms.GroupBox();
-            this.rdFisica = new System.Windows.Forms.RadioButton();
             this.rdJuridica = new System.Windows.Forms.RadioButton();
+            this.rdFisica = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblCGCCPF = new System.Windows.Forms.Label();
             this.gpEnderecoCadastro = new System.Windows.Forms.GroupBox();
+            this.mskCEP = new System.Windows.Forms.MaskedTextBox();
+            this.txtRua = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtBairro = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtNumero = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.cboUF = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCidade = new System.Windows.Forms.TextBox();
-            this.txtRua = new System.Windows.Forms.TextBox();
-            this.cboUF = new System.Windows.Forms.ComboBox();
-            this.txtNumero = new System.Windows.Forms.TextBox();
-            this.txtBairro = new System.Windows.Forms.TextBox();
-            this.mskCEP = new System.Windows.Forms.MaskedTextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.txtCGCCPF = new System.Windows.Forms.MaskedTextBox();
             this.buttonCadConv = new System.Windows.Forms.Button();
             this.gpFormCadastro = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnAtualizar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gpConteudo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPacientes)).BeginInit();
             this.menuStrip2.SuspendLayout();
@@ -95,6 +96,7 @@
             // 
             // gpConteudo
             // 
+            this.gpConteudo.Controls.Add(this.button1);
             this.gpConteudo.Controls.Add(this.gridPacientes);
             this.gpConteudo.Font = new System.Drawing.Font("Quicksand", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpConteudo.Location = new System.Drawing.Point(26, 194);
@@ -104,6 +106,15 @@
             this.gpConteudo.Size = new System.Drawing.Size(872, 333);
             this.gpConteudo.TabIndex = 4;
             this.gpConteudo.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(389, 156);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // gridPacientes
             // 
@@ -211,6 +222,18 @@
             this.gpTipoPessoa.TabStop = false;
             this.gpTipoPessoa.Text = "Tipo Pessoa";
             // 
+            // rdJuridica
+            // 
+            this.rdJuridica.AutoSize = true;
+            this.rdJuridica.Location = new System.Drawing.Point(91, 17);
+            this.rdJuridica.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.rdJuridica.Name = "rdJuridica";
+            this.rdJuridica.Size = new System.Drawing.Size(71, 22);
+            this.rdJuridica.TabIndex = 7;
+            this.rdJuridica.Text = "Jurídica";
+            this.rdJuridica.UseVisualStyleBackColor = true;
+            this.rdJuridica.CheckedChanged += new System.EventHandler(this.rdJuridica_CheckedChanged);
+            // 
             // rdFisica
             // 
             this.rdFisica.AutoSize = true;
@@ -224,18 +247,6 @@
             this.rdFisica.Text = "Física";
             this.rdFisica.UseVisualStyleBackColor = true;
             this.rdFisica.CheckedChanged += new System.EventHandler(this.rdFisica_CheckedChanged);
-            // 
-            // rdJuridica
-            // 
-            this.rdJuridica.AutoSize = true;
-            this.rdJuridica.Location = new System.Drawing.Point(91, 17);
-            this.rdJuridica.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.rdJuridica.Name = "rdJuridica";
-            this.rdJuridica.Size = new System.Drawing.Size(71, 22);
-            this.rdJuridica.TabIndex = 7;
-            this.rdJuridica.Text = "Jurídica";
-            this.rdJuridica.UseVisualStyleBackColor = true;
-            this.rdJuridica.CheckedChanged += new System.EventHandler(this.rdJuridica_CheckedChanged);
             // 
             // label2
             // 
@@ -294,6 +305,23 @@
             this.gpEnderecoCadastro.TabStop = false;
             this.gpEnderecoCadastro.Text = "Endereço/Contato";
             // 
+            // mskCEP
+            // 
+            this.mskCEP.Location = new System.Drawing.Point(56, 34);
+            this.mskCEP.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.mskCEP.Mask = "00.000-000";
+            this.mskCEP.Name = "mskCEP";
+            this.mskCEP.Size = new System.Drawing.Size(73, 22);
+            this.mskCEP.TabIndex = 4;
+            // 
+            // txtRua
+            // 
+            this.txtRua.Location = new System.Drawing.Point(56, 73);
+            this.txtRua.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.txtRua.Name = "txtRua";
+            this.txtRua.Size = new System.Drawing.Size(362, 22);
+            this.txtRua.TabIndex = 20;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -303,6 +331,14 @@
             this.label6.Size = new System.Drawing.Size(21, 18);
             this.label6.TabIndex = 15;
             this.label6.Text = "Nº";
+            // 
+            // txtBairro
+            // 
+            this.txtBairro.Location = new System.Drawing.Point(168, 112);
+            this.txtBairro.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.txtBairro.Name = "txtBairro";
+            this.txtBairro.Size = new System.Drawing.Size(250, 22);
+            this.txtBairro.TabIndex = 22;
             // 
             // label4
             // 
@@ -324,6 +360,14 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Rua";
             // 
+            // txtNumero
+            // 
+            this.txtNumero.Location = new System.Drawing.Point(56, 113);
+            this.txtNumero.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(44, 22);
+            this.txtNumero.TabIndex = 21;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -344,32 +388,6 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Cidade";
             this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(136, 39);
-            this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 18);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "UF";
-            // 
-            // txtCidade
-            // 
-            this.txtCidade.Location = new System.Drawing.Point(283, 34);
-            this.txtCidade.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.txtCidade.Name = "txtCidade";
-            this.txtCidade.Size = new System.Drawing.Size(135, 22);
-            this.txtCidade.TabIndex = 19;
-            // 
-            // txtRua
-            // 
-            this.txtRua.Location = new System.Drawing.Point(56, 73);
-            this.txtRua.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.txtRua.Name = "txtRua";
-            this.txtRua.Size = new System.Drawing.Size(362, 22);
-            this.txtRua.TabIndex = 20;
             // 
             // cboUF
             // 
@@ -408,30 +426,23 @@
             this.cboUF.Size = new System.Drawing.Size(51, 26);
             this.cboUF.TabIndex = 13;
             // 
-            // txtNumero
+            // label9
             // 
-            this.txtNumero.Location = new System.Drawing.Point(56, 113);
-            this.txtNumero.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(44, 22);
-            this.txtNumero.TabIndex = 21;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(136, 39);
+            this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(24, 18);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "UF";
             // 
-            // txtBairro
+            // txtCidade
             // 
-            this.txtBairro.Location = new System.Drawing.Point(168, 112);
-            this.txtBairro.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.txtBairro.Name = "txtBairro";
-            this.txtBairro.Size = new System.Drawing.Size(250, 22);
-            this.txtBairro.TabIndex = 22;
-            // 
-            // mskCEP
-            // 
-            this.mskCEP.Location = new System.Drawing.Point(56, 34);
-            this.mskCEP.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.mskCEP.Mask = "00.000-00";
-            this.mskCEP.Name = "mskCEP";
-            this.mskCEP.Size = new System.Drawing.Size(73, 22);
-            this.mskCEP.TabIndex = 4;
+            this.txtCidade.Location = new System.Drawing.Point(283, 34);
+            this.txtCidade.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.txtCidade.Name = "txtCidade";
+            this.txtCidade.Size = new System.Drawing.Size(135, 22);
+            this.txtCidade.TabIndex = 19;
             // 
             // txtNome
             // 
@@ -512,36 +523,6 @@
             this.gpFormCadastro.TabStop = false;
             this.gpFormCadastro.Text = "Formulário de Cadastro";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.CadetBlue;
-            this.groupBox1.Font = new System.Drawing.Font("Quicksand", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(26, 543);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(872, 10);
-            this.groupBox1.TabIndex = 17;
-            this.groupBox1.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.CadetBlue;
-            this.groupBox2.Font = new System.Drawing.Font("Quicksand", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(26, 21);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(399, 10);
-            this.groupBox2.TabIndex = 18;
-            this.groupBox2.TabStop = false;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.Color.CadetBlue;
-            this.groupBox3.Font = new System.Drawing.Font("Quicksand", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(26, 178);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(872, 10);
-            this.groupBox3.TabIndex = 19;
-            this.groupBox3.TabStop = false;
-            // 
             // btnAtualizar
             // 
             this.btnAtualizar.BackColor = System.Drawing.Color.Transparent;
@@ -554,6 +535,36 @@
             this.btnAtualizar.Size = new System.Drawing.Size(113, 63);
             this.btnAtualizar.TabIndex = 17;
             this.btnAtualizar.UseVisualStyleBackColor = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.CadetBlue;
+            this.groupBox1.Font = new System.Drawing.Font("Quicksand", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(26, 543);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(872, 10);
+            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.CadetBlue;
+            this.groupBox3.Font = new System.Drawing.Font("Quicksand", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(26, 178);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(872, 10);
+            this.groupBox3.TabIndex = 19;
+            this.groupBox3.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.CadetBlue;
+            this.groupBox2.Font = new System.Drawing.Font("Quicksand", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(26, 21);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(399, 10);
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
             // 
             // Form1
             // 
@@ -622,6 +633,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -8,8 +8,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -99,18 +102,18 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms
         {
             if (ValidaForm().Equals(""))
             {
-                Pessoa pessoa = new Pessoa(txtNome.Text, txtCGCCPF.Text.Replace(',', '.'),TipoPessoa);
+                Pessoa pessoa = new Pessoa(txtNome.Text, txtCGCCPF.Text.Replace(',', '.'), TipoPessoa);
                 pessoa.Id = PessoaRepository.Save(pessoa);
-                
-                Endereco endereco = new Endereco(pessoa, mskCEP.Text.Replace(',', '.'),txtRua.Text,
+
+                Endereco endereco = new Endereco(pessoa, mskCEP.Text.Replace(',', '.'), txtRua.Text,
                     Int32.Parse(txtNumero.Text), txtBairro.Text, txtCidade.Text, cboUF.Text);
                 EnderecoRepository.Save(endereco);
-                
+
                 Paciente paciente = new Paciente();
                 paciente.Pessoa.Id = pessoa.Id;
                 paciente.Convenio.Id = (int)cboConvenio.SelectedValue;
                 Paciente pacienteResult = PacienteRepository.Save(paciente);
-                
+
                 if (pacienteResult.Pessoa.Id > 0)
                 {
                     MessageBox.Show($"Pessoa {paciente.Pessoa.Id} - {paciente.Pessoa.Nome} salva com sucesso!", "Adicionar Pessoa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -141,7 +144,7 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms
             else
             {
                 DialogResult = MessageBox.Show("Paciente possui informações salvas no banco, deseja apagar mesmo assim?", "Deletar Paciente", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(DialogResult == DialogResult.Yes)
+                if (DialogResult == DialogResult.Yes)
                 {
                     EnderecoRepository.DeletePessoa(pessoa.Id);
                     PacienteRepository.DeletePessoa(pessoa.Id);
@@ -175,19 +178,86 @@ namespace Devs2Blu.ProjetoAula.SistemaCadastro.Forms
         {
             Form2 f2 = new Form2(this);
             f2.Show();
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://viacep.com.br/ws/" + mskCEP.Text.Remove(2) + "/json/");
+            request.AllowAutoRedirect = false;
+            HttpWebResponse ChecaServidor = (HttpWebResponse)request.GetResponse();
 
+            if (ChecaServidor.StatusCode != HttpStatusCode.OK)
+            {
+                MessageBox.Show("Erro na requisição: " + ChecaServidor.StatusCode.ToString());
+                return; // Encerra o código
+            }
+
+            using (Stream webStream = ChecaServidor.GetResponseStream())
+            {
+                if (webStream != null)
+                {
+                    using (StreamReader responseReader = new StreamReader(webStream))
+                    {
+                        String response = responseReader.ReadToEnd();
+                        MessageBox.Show(response);
+                        response = Regex.Replace(response, "[{},]", string.Empty);
+                        response = response.Replace("\"", "");
+                        MessageBox.Show(response);
+
+                        String[] substrings = response.Split('\n');
+
+                        int cont = 0;
+                        foreach (var substring in substrings)
+                        {
+                            // CEP
+                            if (cont == 1)
+                            {
+                                string[] valor = substring.Split(':');
+                                mskCEP.Text = valor[1].ToString();
+                            }
+
+                            // Logradouro
+                            if (cont == 2)
+                            {
+                                string[] valor = substring.Split(':');
+                                txtRua.Text = valor[1].ToString();
+                            }
+
+
+                            // Bairro
+                            if (cont == 4)
+                            {
+                                string[] valor = substring.Split(':');
+                                txtBairro.Text = valor[1].ToString();
+                            }
+
+                            // Cidade
+                            if (cont == 5)
+                            {
+                                string[] valor = substring.Split(':');
+                                txtCidade.Text = valor[1].ToString();
+                            }
+
+                            // UF
+                            if (cont == 6)
+                            {
+                                string[] valor = substring.Split(':');
+                                cboUF.Text = valor[1].ToString();
+                            }
+                            cont++;
+                        }
+                    }
+                }
+            }
         }
 
         private void label8_Click(object sender, EventArgs e)
         {
 
         }
+
+
+
     }
-
-
 }
